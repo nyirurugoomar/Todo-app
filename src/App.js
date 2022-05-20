@@ -7,16 +7,57 @@ import {
 import './App.css';
 
 function App() {
+
+  const [toDo, setToDo] = useState([
+    {id: 1 ,title: "Task 1" ,status: false},
+    {id: 2 ,title: "Task 2" ,status: false},
+
+  ]);
+
+  const [newTask, setNewTask] = useState('');
+  const [updateData, setUpdateData] = useState('');
+
+  //Add task
+  const addTask =()=>{
+
+  }
+  //-----------------------------------
+  //Delete task
+  const deleteTask =(id)=>{
+    
+  }
+  //-----------------------------------
+  //Mark task as done or Completed
+  const markDone =(id)=>{
+    
+  }
+  //-----------------------------------
+  //Cancel update
+  const cancelUpdate =()=>{
+    
+  }
+  //-----------------------------------
+  // change task for update
+  const changeTask =(e)=>{
+    
+  }
+  //-----------------------------------
+  //Update task
+  const updateTask =()=>{
+    
+  }
+
+
+
   return (
     <div className="container App"> 
 
-<br></br>
+        <br></br>
+        <h2>To Do List App</h2>
+        <br></br>
 
-<h2>To Do List App</h2>
+     {toDo && toDo.length ? '' : 'No Tasks...'}
 
-<br></br>
-
-      <h1>testing</h1>
     </div>
   );
 }
