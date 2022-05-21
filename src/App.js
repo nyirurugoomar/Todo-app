@@ -56,8 +56,38 @@ function App() {
         <h2>To Do List App</h2>
         <br></br>
 
+        {/* //Update Task */}
+        <div className='row'>
+          <div className='col'>
+            <input className='form-control form-control-lg'/>
+          </div>
+          <div className='col-auto'>
+            <button className='btn btn-lg btn-success mr-20'>
+              Update
+            </button>
+            <buttom className ="btn btn-lg btn-warning">
+               Cancel
+            </buttom>
+          </div>
+        </div>
+        <br/>
+
+       {/* //Add Tasl */}
+        <div className='row'>
+              <div className='col'>
+                <input className='form-control form-control-lg'/>
+              </div>
+              <div className='col-auto'>
+                <button className='btn btn-lg btn-success'>Add Task</button>
+                
+              </div>
+
+        </div>
+        <br/>.
+
      {toDo && toDo.length ? '' : 'No Tasks...'}
      {toDo && toDo
+     .sort((a,b)=>a.id>b.id ?1 : -1) // it keeps task on order
      .map((task, index) =>{
        return(
          <React.Fragment key={task.id}>
@@ -70,15 +100,15 @@ function App() {
             </div>
               
             <div className='iconsWrap'>
-              <span>
+              <span title = "Completed / Not Completed">
                 <FontAwesomeIcon icon={faCircleCheck}/>
               </span>
 
-              <span>
+              <span title="Edit">
                 <FontAwesomeIcon icon={faPen}/>
               </span>
 
-              <span>
+              <span title='Delete'>
               <FontAwesomeIcon icon={faTrashCan}/>
               </span>
 
