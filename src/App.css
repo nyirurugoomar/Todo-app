@@ -60,3 +60,6 @@ body {
 .taskBg .iconsWrap span:hover{
   color:yellow;
 }
+.mr-20{
+  margin: 0px 10px 0px;
+}

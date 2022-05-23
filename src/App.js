@@ -11,6 +11,7 @@ function App() {
   const [toDo, setToDo] = useState([
     {id: 1 ,title: "Task 1" ,status: false},
     {id: 2 ,title: "Task 2" ,status: false},
+    
 
   ]);
 
@@ -19,6 +20,12 @@ function App() {
 
   //Add task
   const addTask =()=>{
+    if(newTask){
+      let num=toDo.length +1;
+      let newEntry= {id:num,title:newTask,status:false}
+      setToDo([...toDo,newEntry])
+      setNewTask('')
+    }
 
   }
   //-----------------------------------
@@ -72,13 +79,18 @@ function App() {
         </div>
         <br/>
 
-       {/* //Add Tasl */}
+       {/* //Add Task */}
         <div className='row'>
               <div className='col'>
-                <input className='form-control form-control-lg'/>
+                <input 
+                value={newTask}
+                onChange={(e) => setNewTask(e.target.value)}
+                className='form-control form-control-lg'/>
               </div>
               <div className='col-auto'>
-                <button className='btn btn-lg btn-success'>Add Task</button>
+                <button 
+                onClick={addTask}
+                className='btn btn-lg btn-success'>Add Task</button>
                 
               </div>
 
