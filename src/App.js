@@ -55,6 +55,13 @@ function App() {
   //-----------------------------------
   // change task for update
   const changeTask =(e)=>{
+    let newEntry={
+     id: updateData.id,
+     title: e.target.value,
+     status:updateData.status ? true : false
+    }
+    setUpdateData(newEntry);
+
     
   }
   //-----------------------------------
@@ -77,6 +84,7 @@ function App() {
           <div className='col'>
             <input 
             value={ updateData && updateData.title}
+            onChange={(e) => changeTask(e)}
             className='form-control form-control-lg'/>
           </div>
           <div className='col-auto'>
