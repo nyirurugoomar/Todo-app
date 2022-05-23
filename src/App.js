@@ -31,16 +31,25 @@ function App() {
   //-----------------------------------
   //Delete task
   const deleteTask =(id)=>{
+    let newTasks=toDo.filter(task =>task.id !== id)
+    setToDo(newTasks);
     
   }
   //-----------------------------------
   //Mark task as done or Completed
   const markDone =(id)=>{
-    
+    const newTask=toDo.map(task => {
+      if(task.id === id){                                                             
+        return({...task,status: !task.status })
+      }
+      return task;
+    })
+    setToDo(newTask);
   }
   //-----------------------------------
   //Cancel update
   const cancelUpdate =()=>{
+    setUpdateData('');
     
   }
   //-----------------------------------
@@ -66,7 +75,9 @@ function App() {
         {/* //Update Task */}
         <div className='row'>
           <div className='col'>
-            <input className='form-control form-control-lg'/>
+            <input 
+            value={ updateData && updateData.title}
+            className='form-control form-control-lg'/>
           </div>
           <div className='col-auto'>
             <button className='btn btn-lg btn-success mr-20'>
@@ -112,15 +123,25 @@ function App() {
             </div>
               
             <div className='iconsWrap'>
-              <span title = "Completed / Not Completed">
+              <span title = "Completed / Not Completed"
+              onClick={(e) =>markDone(task.id)}>
                 <FontAwesomeIcon icon={faCircleCheck}/>
               </span>
-
-              <span title="Edit">
+               
+               {task.status ? null :(
+                 <span title="Edit"
+                 onClick={() =>setUpdateData ({
+                   id:task.id,
+                   title:task.title,
+                   status:task.status ? true : false
+                   })}>
                 <FontAwesomeIcon icon={faPen}/>
               </span>
+               )}
+              
 
-              <span title='Delete'>
+              <span title='Delete' 
+              onClick={() => deleteTask(task.id)}>
               <FontAwesomeIcon icon={faTrashCan}/>
               </span>
 
