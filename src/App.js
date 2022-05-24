@@ -84,27 +84,33 @@ function App() {
         <br></br>
 
         {/* //Update Task */}
-        <div className='row'>
-          <div className='col'>
-            <input 
-            value={ updateData && updateData.title}
-            onChange={(e) => changeTask(e)}
-            className='form-control form-control-lg'/>
-          </div>
-          <div className='col-auto'>
-            <button 
-            onClick={updateTask}
-            className='btn btn-lg btn-success mr-20'>
-              Update
-            </button>
-            <buttom className ="btn btn-lg btn-warning">
-               Cancel
-            </buttom>
-          </div>
+        {updateData && updateData.title ? (
+
+          <>
+          <div className='row'>
+              <div className='col'>
+                <input 
+                value={ updateData && updateData.title}
+                onChange={(e) => changeTask(e)}
+                className='form-control form-control-lg'/>
+              </div>
+              <div className='col-auto'>
+                <button 
+                onClick={updateTask}
+                className='btn btn-lg btn-success mr-20'>
+                  Update
+                </button>
+                <buttom className ="btn btn-lg btn-warning">
+                  Cancel
+                </buttom>
+              </div>
         </div>
         <br/>
+          </>
 
-       {/* //Add Task */}
+        ) : (
+          <>
+          {/* //Add Task */}
         <div className='row'>
               <div className='col'>
                 <input 
@@ -120,7 +126,12 @@ function App() {
               </div>
 
         </div>
-        <br/>.
+        <br/>
+          </>
+        )} 
+        
+
+       
 
      {toDo && toDo.length ? '' : 'No Tasks...'}
      {toDo && toDo
