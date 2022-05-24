@@ -100,7 +100,9 @@ function App() {
                 className='btn btn-lg btn-success mr-20'>
                   Update
                 </button>
-                <buttom className ="btn btn-lg btn-warning">
+                <buttom 
+                onClick={cancelUpdate}
+                className ="btn btn-lg btn-warning">
                   Cancel
                 </buttom>
               </div>
@@ -113,15 +115,15 @@ function App() {
           {/* //Add Task */}
         <div className='row'>
               <div className='col'>
-                <input 
-                value={newTask}
-                onChange={(e) => setNewTask(e.target.value)}
-                className='form-control form-control-lg'/>
-              </div>
-              <div className='col-auto'>
-                <button 
-                onClick={addTask}
-                className='btn btn-lg btn-success'>Add Task</button>
+                    <input 
+                    value={newTask}
+                    onChange={(e) => setNewTask(e.target.value)}
+                    className='form-control form-control-lg'/>
+                  </div>
+                  <div className='col-auto'>
+                    <button 
+                    onClick={addTask}
+                    className='btn btn-lg btn-success'>Add Task</button>
                 
               </div>
 
