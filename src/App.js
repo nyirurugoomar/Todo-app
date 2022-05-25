@@ -1,4 +1,9 @@
 import React,{useState} from 'react';
+import AddTaskForm from './components/AddTaskForm.jsx';
+import ToDo from './components/ToDo.jsx';
+import UpdateForm from './components/UpdateForm.jsx';
+
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -9,8 +14,7 @@ import './App.css';
 function App() {
 
   const [toDo, setToDo] = useState([
-    {id: 1 ,title: "Task 1" ,status: false},
-    {id: 2 ,title: "Task 2" ,status: false},
+    
     
 
   ]);
